@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zenvora Studio — Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-print-color-adjust: exact;
+    }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      page-break-after: always;
+      position: relative;
+      padding: 20mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      background: #FCFBF7; 
+      color: #2C2C2C;
+      /* Prevents weird page breaks */
+      break-inside: avoid; 
+    }
+    
+    /* Typography */
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
+    h1 { font-size: 48pt; line-height: 1.1; }
+    h2 { font-size: 32pt; margin-bottom: 10px; color: #2C2C2C; }
+    p { font-size: 12pt; line-height: 1.6; color: #4a4a4a; }
+    .eyebrow { font-size: 9pt; text-transform: uppercase; letter-spacing: 2px; color: #8a8580; margin-bottom: 10px; }
+
+    /* Cover Page */
+    .cover { background: #2C2C2C; color: #FCFBF7; align-items: center; text-align: center; }
+    .cover h1 { color: #FCFBF7; }
+    .cover p { color: #E8E0D5; font-size: 14pt; letter-spacing: 2px; text-transform: uppercase; margin-top: 20px; }
+
+    /* Intro Page */
+    .intro { justify-content: flex-end; }
+    .intro h1 { max-width: 80%; margin-bottom: 30px; }
+    .intro p { max-width: 75%; }
+
+    /* Project Pages */
+    .project-header { margin-bottom: 20px; }
+    /* Reduced height from 140mm to 115mm to prevent overflow */
+    .project-img { width: 100%; height: 115mm; object-fit: cover; border-radius: 4px; margin-bottom: 20px; }
+    .project-text { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
+    .project-text h3 { color: #2C2C2C; }
+    
+    /* Pricing Page */
+    .pricing { background: #E8E0D5; justify-content: flex-start; padding-top: 30mm; }
+    .pricing-grid { display: grid; gap: 15px; margin-top: 20px; }
+    /* Reduced padding to ensure all 3 cards fit */
+    .pricing-card { background: #FCFBF7; padding: 20px; border: 1px solid rgba(44,44,44,0.1); }
+    .pricing-card h3 { font-size: 18pt; margin-bottom: 5px; }
+    .pricing-card .price { font-family: 'Playfair Display', serif; font-size: 20pt; margin-bottom: 10px; color: #2C2C2C; }
+    .pricing-card ul { list-style: none; }
+    .pricing-card li { font-size: 10pt; margin-bottom: 5px; color: #4a4a4a; }
+    .pricing-card li::before { content: "— "; color: #8a8580; }
+
+    /* Contact Page */
+    .contact { background: #2C2C2C; color: #FCFBF7; align-items: center; text-align: center; }
+    .contact h2 { color: #FCFBF7; font-size: 40pt; }
+    .contact a { color: #E8E0D5; font-size: 16pt; text-decoration: none; margin-top: 20px; display: block; }
+    
+    /* For screen viewing only */
+    @media screen {
+      body { background: #555; padding: 20px; }
+      .page { margin: 0 auto 20px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: COVER -->
+  <div class="page cover">
+    <h1 style="font-size: 64pt;">Zenvora Studio</h1>
+    <p>AI Creative Advertising</p>
+  </div>
+
+  <!-- PAGE 2: INTRO -->
+  <div class="page intro">
+    <p class="eyebrow">Introduction</p>
+    <h1>Make your product impossible to ignore.</h1>
+    <p>AI-powered product advertising that combines creative storytelling, cinematic visuals, and short-form video to bring brands to life.<br><br>We partner with small US e-commerce and direct-to-consumer (DTC) brands to build premium visual identities. We don't just generate images—we direct complete campaigns, from the hero product shot to the UGC-style video, designed to stop the scroll.</p>
+  </div>
+
+  <!-- PAGE 3: LUMIERE -->
+  <div class="page">
+    <div class="project-header">
+      <p class="eyebrow">Beauty & Skincare · Independent Concept</p>
+      <h2>Lumière Beauty</h2>
+    </div>
+    <img src="/work/lumiere-beauty/l1.png" class="project-img" alt="Lumiere">
+    <div class="project-text">
+      <h3>Radiant Skin Serum</h3>
+      <p>A quiet film language for a serum that treats light as a material. We built a complete visual system for a premium skincare launch, using champagne beige, ivory, and soft gold. Frosted glass, natural light, and botanical details carry the product across hero, macro, and lifestyle contexts.</p>
+    </div>
+  </div>
+
+  <!-- PAGE 4: VEYRON -->
+  <div class="page">
+    <div class="project-header">
+      <p class="eyebrow">Fashion & Apparel · Independent Concept</p>
+      <h2>Veyron Athletics</h2>
+    </div>
+    <img src="/work/veyron-athletics/v1.png" class="project-img" alt="Veyron">
+    <div class="project-text">
+      <h3>Performance Sneakers</h3>
+      <p>Angular product cinema for a performance silhouette. The sneaker is treated as architecture: sole geometry, mesh, and a colourway held to deep charcoal and taupe. This concept is written for a brand that wants energy without shouting—athletic, but edited.</p>
+    </div>
+  </div>
+
+  <!-- PAGE 5: EMBERBITE -->
+  <div class="page">
+    <div class="project-header">
+      <p class="eyebrow">Food & Beverage · Independent Concept</p>
+      <h2>EmberBite</h2>
+    </div>
+    <img src="/work/emberbite/e1.png" class="project-img" alt="EmberBite">
+    <div class="project-text">
+      <h3>Gourmet Burger</h3>
+      <p>Heat, crumb, and close-up craft for a gourmet burger. The work is about appetite and craft: toasted crumb, melted edges, and a composition that feels photographed for a serious restaurant as much as a social ad. Warm lighting, deep shadows, and a focus on texture.</p>
+    </div>
+  </div>
+
+  <!-- PAGE 6: SERVICES -->
+  <div class="page pricing">
+    <p class="eyebrow">Services & Pricing</p>
+    <h2>Elevate your brand.</h2>
+    
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Single Ad Trial</h3>
+        <div class="price">$25</div>
+        <ul>
+          <li>One 10–15 second video</li>
+          <li>One creative concept</li>
+          <li>Vertical 9:16 format</li>
+          <li>One revision</li>
+        </ul>
+      </div>
+      
+      <div class="pricing-card">
+        <h3>Creative Starter Pack</h3>
+        <div class="price">$100</div>
+        <ul>
+          <li>Five 10–15 second videos</li>
+          <li>Different creative directions</li>
+          <li>Vertical 9:16 format</li>
+          <li>One revision per video</li>
+        </ul>
+      </div>
+      
+      <div class="pricing-card">
+        <h3>Custom Creative Package</h3>
+        <div class="price">Contact for quote</div>
+        <ul>
+          <li>Bespoke campaigns for product launches</li>
+          <li>Complete visual identity systems</li>
+          <li>Commercial usage rights included</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 7: CONTACT -->
+  <div class="page contact">
+    <h2>Let's build your next campaign.</h2>
+    <p style="margin-top: 20px; color: #E8E0D5;">Ready to make your product impossible to ignore?</p>
+    <a href="mailto:zenvorastudio29@gmail.com">zenvorastudio29@gmail.com</a>
+    <!-- Replace with your actual Cloudflare URL once deployed -->
+    <a href="#">zenvorastudio.com</a> 
+  </div>
+
+</body>
+</html>
