@@ -3,7 +3,6 @@ import type {
   NavItem,
   PricingTier,
   ProcessStep,
-  Service,
 } from "@/types";
 
 export const STUDIO_NAME = "Zenvora Studio";
@@ -157,8 +156,8 @@ export const industries = [
 export const serviceOptions = [
   "AI UGC-style Video Ads",
   "Product Showcase Videos",
-  "Social Media Ad Creatives",
-  "Creative Concepts & Campaigns",
+  "AI Poster Creation",
+  "AI Social Media Posts",
   "Not sure yet",
 ];
 
