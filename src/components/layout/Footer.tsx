@@ -6,12 +6,12 @@ import { navItems, STUDIO_EMAIL, STUDIO_NAME } from "@/data/site";
 const socials = [
   { 
     label: "Instagram", 
-    href: "https://www.instagram.com/zenvora_studio/", 
+    href: "https://www.instagram.com/zenvora__studio/", 
     icon: Instagram 
   },
   { 
     label: "LinkedIn", 
-    href: "#", // Add your LinkedIn URL here later if you make one
+    href: "#", 
     icon: Linkedin 
   },
 ];
