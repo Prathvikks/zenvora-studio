@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
+import { Instagram, Linkedin } from "lucide-react";
 import { Container } from "@/components/common/Container";
 import { navItems, STUDIO_EMAIL, STUDIO_NAME } from "@/data/site";
 
 const socials = [
-  { label: "Instagram", href: "#" },
-  { label: "LinkedIn", href: "#" },
+  { 
+    label: "Instagram", 
+    href: "https://www.instagram.com/zenvora_studio/", 
+    icon: Instagram 
+  },
+  { 
+    label: "LinkedIn", 
+    href: "#", // Add your LinkedIn URL here later if you make one
+    icon: Linkedin 
+  },
 ];
 
 export function Footer() {
@@ -35,17 +44,22 @@ export function Footer() {
           >
             {STUDIO_EMAIL}
           </a>
-          <div className="mt-6 flex gap-4">
-            {socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                className="text-sm text-ivory/60 hover:text-ivory"
-                aria-label={`${social.label} placeholder`}
-              >
-                {social.label}
-              </a>
-            ))}
+          <div className="mt-6 flex gap-5">
+            {socials.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ivory/60 transition-colors hover:text-ivory"
+                  aria-label={`Zenvora Studio on ${social.label}`}
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              );
+            })}
           </div>
         </div>
       </Container>
