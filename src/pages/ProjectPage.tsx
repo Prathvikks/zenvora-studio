@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
 import { PlaceholderVideo } from "@/components/common/PlaceholderVideo";
@@ -81,7 +82,6 @@ export function ProjectPage() {
         <ProjectGallery items={project.gallery} brand={project.brand} />
       </Container>
 
-      {/* UPDATED VIDEO SECTION */}
       <section className="border-y border-charcoal/10 bg-charcoal py-16 text-ivory">
         <Container className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
@@ -94,14 +94,7 @@ export function ProjectPage() {
             </p>
           </div>
           {project.videoSrc ? (
-            <div className="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-2xl border border-ivory/20">
-              <video 
-                src={project.videoSrc} 
-                controls 
-                playsInline
-                className="w-full h-auto aspect-[9/16] object-cover bg-black"
-              />
-            </div>
+            <AutoPlayVideo src={project.videoSrc} />
           ) : (
             <PlaceholderVideo title={project.videoLabel} />
           )}
@@ -122,5 +115,52 @@ export function ProjectPage() {
         <ProjectNav previous={previous} next={next} />
       </Container>
     </article>
+  );
+}
+
+// NEW COMPONENT: Handles autoplay on scroll
+function AutoPlayVideo({ src }: { src: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Play when 50% of the video is visible
+            video.play().catch((error) => {
+              console.log("Autoplay prevented by browser:", error);
+            });
+          } else {
+            // Pause when scrolled away
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.5 } // 0.5 means 50% of the element must be in view
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <div className="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-2xl border border-ivory/20 bg-black">
+      <video
+        ref={videoRef}
+        src={src}
+        muted // MUST BE MUTED FOR AUTOPLAY
+        playsInline
+        loop
+        controls // Keep controls so they can unmute
+        className="w-full h-auto aspect-[9/16] object-cover"
+      />
+    </div>
   );
 }
